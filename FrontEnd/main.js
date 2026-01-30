@@ -34,9 +34,8 @@ btn.addEventListener("click", async (event) => {
             body: JSON.stringify(data)
         });
 
-
         const result = await response.json();
-
+        console.log(result)
         if (result.error) {
             output.innerText = `Error: ${result.error}`;
         } else {
@@ -47,4 +46,17 @@ btn.addEventListener("click", async (event) => {
         console.error(err);
         output.innerText = `Fetch Error: ${err.message}`;
     }
+
+    // fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)}).then(response=>{
+    //     if(!response.ok){
+    //         output.classList.remove("output")
+    //         output.innerText="Soemthing wrong"
+    //     }
+    //     return response.json()
+    // }).then(data=>{
+    //     console.log(data)
+    // }).catch(err=>{
+    //     output.classList.remove("output")
+    //     output.innerText="Soemthing wrong"
+    // })
 });
